@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Cumpleaños - Kenny</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- ESTILOS GENERALES Y CONFIGURACIÓN MÓVIL --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #eaeaea;
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #4a0e17; /* Tono vino oscuro principal */
+        }
+        /* Contenedor tipo smartphone/tarjeta vertical */
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background-color: #6b1524; /* Fondo guinda de las secciones inferiores */
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        /* --- SECCIÓN 1: BIENVENIDA (FOTO CHICA) --- */
+        .hero-section {
+            width: 100%;
+            height: auto;
+        }
+        .hero-section img {
+            width: 100%;
+            display: block;
+        }
+
+        /* --- SECCIÓN 2: PORTADA DE INVITACIÓN (TEXTURA Y FLORES) --- */
+        .invitation-card {
+            height: 1500px;
+            background-color: #f4eae1; /* Color crema de fondo */
+            background-image: url('papel.jpeg');
+            /* Si tienes la textura de papel viejo puedes añadirla aquí como background-image */
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .invitation-card h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+        .invitation-card .sub {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .invitation-card .name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            color: #6b1524;
+            margin: 20px 0;
+        }
+        .invitation-card .date, .invitation-card .time {
+            font-size: 1.6rem;
+            margin: 10px 0;
+        }
+
+        /* --- SECCIÓN 3: GATITO CONTADOR Y UBICACIÓN --- */
+        .countdown-section {
+            background-color: #6b1524;
+            padding: 30px 20px;
+            text-align: center;
+            color: #fff;
+        }
+        .card-inner-box {
+            background-color: #aed6f1; /* Fondo azul pastel del gatito */
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+        .card-inner-box img {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 8px;
+        }
+        /* Bloques de la cuenta regresiva */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .time-block {
+            text-align: center;
+        }
+        .time-box {
+            background-color: #fdf5e6; /* Fondo beige de los números */
+            color: #000;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            font-weight: bold;
+            width: 60px;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
+        .time-label {
+            font-size: 0.8rem;
+            color: #f4eae1;
+            margin-top: 5px;
+        }
+
+        /* --- SECCIÓN UBICACIÓN --- */
+        .section-title-cursive {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            margin: 25px 0 15px 0;
+            color: #fdf5e6;
+        }
+        .address-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #f4eae1;
+            padding: 0 15px;
+        }
+
+        /* --- SECCIÓN 4: ITINERARIO (TIMELINE) --- */
+        .itinerary-section {
+            background-color: #6b1524;
+            padding: 10px 20px 40px 20px;
+            text-align: center;
+            color: #fff;
+        }
+        .timeline-item {
+            margin: 30px 0;
+            position: relative;
+        }
+        .timeline-icon {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+        .timeline-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            color: #fdf5e6;
+            font-style: italic;
+        }
+        .timeline-time {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 4px;
+        }
+        .timeline-desc {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.4rem;
+            margin-top: 5px;
+            color: #f4eae1;
+        }
+        /* Línea divisoria vertical estética */
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 40px;
+            background-color: rgba(244, 234, 225, 0.4);
+            margin: 20px auto 0 auto;
+        }
+
+        /* --- SECCIÓN 5: VALES / REGALOS --- */
+        .gifts-section {
+            background-color: #6b1524;
+            padding: 0 20px 40px 20px;
+        }
+        .gifts-box {
+            background-color: #aedcfc; /* Fondo azul del gatito final */
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+        }
+        .gifts-box p {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.5rem;
+            color: #111;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .gifts-box img {
+            width: 100%;
+            max-width: 250px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="hero-section">
+            <img src="1-chica.jpg" alt="Kenny">
+        </div>
+
+        <div class="invitation-card">
+            <h1>Cumpleaños</h1>
+            <div class="sub">de</div>
+            <div class="name">Kenny</div>
+            <div class="date">13 de junio</div>
+            <div class="sub">de 2026</div>
+            <div class="time">03:00 pm</div>
+        </div>
+
+        <div class="countdown-section">
+            <div class="card-inner-box">
+                <img src="gatito-old.jpg" alt="Im Old Cat">
+            </div>
+
+            <div class="countdown-container">
+                <div class="time-block">
+                    <div class="time-box" id="days">00</div>
+                    <div class="time-label">Días</div>
+                </div>
+                <div class="time-block">
+                    <div class="time-box" id="hours">00</div>
+                    <div class="time-label">Horas</div>
+                </div>
+                <div class="time-block">
+                    <div class="time-box" id="minutes">00</div>
+                    <div class="time-label">Minutos</div>
+                </div>
+                <div class="time-block">
+                    <div class="time-box" id="seconds">00</div>
+                    <div class="time-label">Segundos</div>
+                </div>
+            </div>
+
+            <div class="section-title-cursive">Ubicación</div>
+            <p class="address-text">
+                Avenida Aguascalientes & Eucalipto, Loma Linda, Tlacomulco, Ocotlán, Tlaxcala.
+            </p>
+        </div>
+
+        <div class="itinerary-section">
+            <div class="section-title-cursive" style="font-size: 4rem;">Karaoke</div>
+            
+            <div class="timeline-item">
+                <div class="timeline-icon">🍴</div>
+                <div class="timeline-title">Comida</div>
+                <div class="timeline-time">03:00 pm hrs.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">🎮</div>
+                <div class="timeline-title">Actividades</div>
+                <div class="timeline-time">05:00 pm hrs.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">🎵</div>
+                <div class="timeline-desc">Karaoke (Piensa la canción que quieras cantar con la festejada)</div>
+                <div class="timeline-time">07:00 pm hrs.</div>
+            </div>
+        </div>
+
+        <div class="gifts-section">
+            <div class="gifts-box">
+                <p>"Se aceptan vales de despensa, efectivo y transferencias"</p>
+                <img src="gatito-globo.jpg" alt="Gatito con Globo">
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Definimos la fecha exacta del cumpleaños: Sábado 13 de Junio de 2026 a las 15:00 (3:00 PM)
+        const targetDate = new Date('June 13, 2026 15:00:00').getTime();
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            // Si ya llegó la fecha o ya pasó
+            if (difference < 0) {
+                document.getElementById('days').innerText = '00';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('minutes').innerText = '00';
+                document.getElementById('seconds').innerText = '00';
+                return;
+            }
+
+            // Cálculos matemáticos para desglosar el tiempo
+            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+            // Añadir un cero a la izquierda si el número tiene un solo dígito
+            document.getElementById('days').innerText = d < 10 ? '0' + d : d;
+            document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
+            document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
+            document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
+        };
+
+        // Actualizar el contador cada 1 segundo
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Ejecución inmediata al cargar la página
+    </script>
+</body>
+</html>
